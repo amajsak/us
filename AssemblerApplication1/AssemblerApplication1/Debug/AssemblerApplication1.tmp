@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.52</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:\Programs\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:\Programs\Atmel Toolchain\AVR Assembler\Native\2.1.39.1005\avrassembler\Include\m32def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\Debug/AssemblerApplication1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication1.map</FILE>
+  <FILE>AssemblerApplication1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <DEST><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>66</LINE></DEST>
+  <NAPIS><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>70</LINE></NAPIS>
+  <start><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>74</LINE></start>
+  <LOOP1><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>161</LINE></LOOP1>
+  <LOOP1END><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>167</LINE></LOOP1END>
+  <LOOP2><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>128</LINE></LOOP2>
+  <LOOP2END><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>143</LINE></LOOP2END>
+  <rev><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>87</LINE></rev>
+  <length><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>156</LINE></length>
+  <LOOP><FILE>C:\Users\Alek\Documents\Atmel Studio\6.1\AssemblerApplication1\AssemblerApplication1\AssemblerApplication1.asm</FILE><LINE>113</LINE></LOOP>
+ </LABELS>
+</ASSEMBLER_INFO>
