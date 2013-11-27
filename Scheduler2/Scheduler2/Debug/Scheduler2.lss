@@ -25,11 +25,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_frame  00000178  00000000  00000000  00001440  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000012f  00000000  00000000  000015b8  2**0
+ 11 .debug_str    00000113  00000000  00000000  000015b8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000030a  00000000  00000000  000016e7  2**0
+ 12 .debug_loc    0000030a  00000000  00000000  000016cb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  000019f1  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  000019d5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -45,8 +45,8 @@ Disassembly of section .text:
   1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  2c:	0c 94 9c 02 	jmp	0x538	; 0x538 <__vector_11>
+  28:	0c 94 9c 02 	jmp	0x538	; 0x538 <__vector_10>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
@@ -579,18 +579,17 @@ void schedule(){
 
 000003d8 <execute>:
 
-void execute(){
+void execute(){	
  3d8:	cf 93       	push	r28
  3da:	df 93       	push	r29
  3dc:	00 d0       	rcall	.+0      	; 0x3de <execute+0x6>
  3de:	cd b7       	in	r28, 0x3d	; 61
  3e0:	de b7       	in	r29, 0x3e	; 62
-	//while(1){
-		for(int i=0; i < MAX_TASKS; i++){
+	for(int i=0; i < MAX_TASKS; i++){
  3e2:	1a 82       	std	Y+2, r1	; 0x02
  3e4:	19 82       	std	Y+1, r1	; 0x01
  3e6:	9d c0       	rjmp	.+314    	; 0x522 <execute+0x14a>
-			if(tasks[i].ready > 0){
+		if(tasks[i].ready > 0){
  3e8:	29 81       	ldd	r18, Y+1	; 0x01
  3ea:	3a 81       	ldd	r19, Y+2	; 0x02
  3ec:	c9 01       	movw	r24, r18
@@ -609,7 +608,7 @@ void execute(){
  406:	88 23       	and	r24, r24
  408:	09 f4       	brne	.+2      	; 0x40c <execute+0x34>
  40a:	86 c0       	rjmp	.+268    	; 0x518 <execute+0x140>
-				tasks[i].t();
+			tasks[i].t();
  40c:	29 81       	ldd	r18, Y+1	; 0x01
  40e:	3a 81       	ldd	r19, Y+2	; 0x02
  410:	c9 01       	movw	r24, r18
@@ -628,7 +627,7 @@ void execute(){
  42a:	91 81       	ldd	r25, Z+1	; 0x01
  42c:	fc 01       	movw	r30, r24
  42e:	09 95       	icall
-				tasks[i].ready--;
+			tasks[i].ready--;
  430:	29 81       	ldd	r18, Y+1	; 0x01
  432:	3a 81       	ldd	r19, Y+2	; 0x02
  434:	c9 01       	movw	r24, r18
@@ -661,8 +660,8 @@ void execute(){
  46a:	9f 4f       	sbci	r25, 0xFF	; 255
  46c:	fc 01       	movw	r30, r24
  46e:	40 83       	st	Z, r20
-				//usuwanie taska jesli zostal wykonany i nie jest periodyczny
-				if(tasks[i].ready == 0 && tasks[i].Interval == 0){
+			//usuwanie taska jesli zostal wykonany i nie jest periodyczny
+			if(tasks[i].ready == 0 && tasks[i].Interval == 0){
  470:	29 81       	ldd	r18, Y+1	; 0x01
  472:	3a 81       	ldd	r19, Y+2	; 0x02
  474:	c9 01       	movw	r24, r18
@@ -699,7 +698,7 @@ void execute(){
  4b2:	91 81       	ldd	r25, Z+1	; 0x01
  4b4:	00 97       	sbiw	r24, 0x00	; 0
  4b6:	81 f5       	brne	.+96     	; 0x518 <execute+0x140>
-					tasks[i].Interval = 0;
+				tasks[i].Interval = 0;
  4b8:	29 81       	ldd	r18, Y+1	; 0x01
  4ba:	3a 81       	ldd	r19, Y+2	; 0x02
  4bc:	c9 01       	movw	r24, r18
@@ -716,7 +715,7 @@ void execute(){
  4d2:	fc 01       	movw	r30, r24
  4d4:	11 82       	std	Z+1, r1	; 0x01
  4d6:	10 82       	st	Z, r1
-					tasks[i].ToGo = 0;
+				tasks[i].ToGo = 0;
  4d8:	29 81       	ldd	r18, Y+1	; 0x01
  4da:	3a 81       	ldd	r19, Y+2	; 0x02
  4dc:	c9 01       	movw	r24, r18
@@ -733,7 +732,7 @@ void execute(){
  4f2:	fc 01       	movw	r30, r24
  4f4:	11 82       	std	Z+1, r1	; 0x01
  4f6:	10 82       	st	Z, r1
-					tasks[i].t = 0;				
+				tasks[i].t = 0;				
  4f8:	29 81       	ldd	r18, Y+1	; 0x01
  4fa:	3a 81       	ldd	r19, Y+2	; 0x02
  4fc:	c9 01       	movw	r24, r18
@@ -750,12 +749,12 @@ void execute(){
  512:	fc 01       	movw	r30, r24
  514:	11 82       	std	Z+1, r1	; 0x01
  516:	10 82       	st	Z, r1
+		}			
 	}		
 }
 
-void execute(){
-	//while(1){
-		for(int i=0; i < MAX_TASKS; i++){
+void execute(){	
+	for(int i=0; i < MAX_TASKS; i++){
  518:	89 81       	ldd	r24, Y+1	; 0x01
  51a:	9a 81       	ldd	r25, Y+2	; 0x02
  51c:	01 96       	adiw	r24, 0x01	; 1
@@ -767,11 +766,11 @@ void execute(){
  528:	91 05       	cpc	r25, r1
  52a:	0c f4       	brge	.+2      	; 0x52e <execute+0x156>
  52c:	5d cf       	rjmp	.-326    	; 0x3e8 <execute+0x10>
-					tasks[i].t = 0;				
-				}
-			}			
-		}	
-	//}
+				tasks[i].ToGo = 0;
+				tasks[i].t = 0;				
+			}
+		}			
+	}
 }  
  52e:	0f 90       	pop	r0
  530:	0f 90       	pop	r0
@@ -779,9 +778,9 @@ void execute(){
  534:	cf 91       	pop	r28
  536:	08 95       	ret
 
-00000538 <__vector_11>:
+00000538 <__vector_10>:
 
-ISR(TIMER0_OVF_vect){
+ISR(TIMER0_COMP_vect){
  538:	1f 92       	push	r1
  53a:	0f 92       	push	r0
  53c:	00 90 5f 00 	lds	r0, 0x005F
@@ -803,7 +802,7 @@ ISR(TIMER0_OVF_vect){
  55e:	df 93       	push	r29
  560:	cd b7       	in	r28, 0x3d	; 61
  562:	de b7       	in	r29, 0x3e	; 62
-	schedule();
+	schedule();	
  564:	0e 94 f3 00 	call	0x1e6	; 0x1e6 <schedule>
 }
  568:	df 91       	pop	r29
@@ -869,8 +868,7 @@ int main(void)
  5c0:	df 93       	push	r29
  5c2:	cd b7       	in	r28, 0x3d	; 61
  5c4:	de b7       	in	r29, 0x3e	; 62
-	//timer w tryb CTC
-	//OCR na 250
+	
 	// prescaler na 64
 	OCR0 = 250;
  5c6:	8c e5       	ldi	r24, 0x5C	; 92
@@ -888,14 +886,14 @@ int main(void)
  5dc:	23 60       	ori	r18, 0x03	; 3
  5de:	fc 01       	movw	r30, r24
  5e0:	20 83       	st	Z, r18
-	TIMSK |= (1 << TOIE0);
+	TIMSK |= (1 << TOIE0) | (1 << OCIE0);
  5e2:	89 e5       	ldi	r24, 0x59	; 89
  5e4:	90 e0       	ldi	r25, 0x00	; 0
  5e6:	29 e5       	ldi	r18, 0x59	; 89
  5e8:	30 e0       	ldi	r19, 0x00	; 0
  5ea:	f9 01       	movw	r30, r18
  5ec:	20 81       	ld	r18, Z
- 5ee:	21 60       	ori	r18, 0x01	; 1
+ 5ee:	23 60       	ori	r18, 0x03	; 3
  5f0:	fc 01       	movw	r30, r24
  5f2:	20 83       	st	Z, r18
 	DDRA = 0xFF;
@@ -919,11 +917,10 @@ int main(void)
  612:	84 ed       	ldi	r24, 0xD4	; 212
  614:	92 e0       	ldi	r25, 0x02	; 2
  616:	0e 94 95 00 	call	0x12a	; 0x12a <addTask>
-	sei();
+	sei();	
  61a:	78 94       	sei
-	//for(;;)
 	while(1){
-	execute();
+		execute();
  61c:	0e 94 ec 01 	call	0x3d8	; 0x3d8 <execute>
 	}
  620:	fd cf       	rjmp	.-6      	; 0x61c <main+0x5e>

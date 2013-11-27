@@ -216,6 +216,7 @@ LOAD f:/programs/atmel toolchain/avr8 gcc/native/3.4.2.1002/avr8-gnu-toolchain/b
                 0x00000078                __bad_interrupt
                 0x00000078                __vector_6
                 0x00000078                __vector_3
+                0x00000078                __vector_11
                 0x00000078                __vector_13
                 0x00000078                __vector_17
                 0x00000078                __vector_19
@@ -227,7 +228,6 @@ LOAD f:/programs/atmel toolchain/avr8 gcc/native/3.4.2.1002/avr8-gnu-toolchain/b
                 0x00000078                __vector_15
                 0x00000078                __vector_8
                 0x00000078                __vector_14
-                0x00000078                __vector_10
                 0x00000078                __vector_16
                 0x00000078                __vector_18
                 0x00000078                __vector_20
@@ -242,9 +242,9 @@ LOAD f:/programs/atmel toolchain/avr8 gcc/native/3.4.2.1002/avr8-gnu-toolchain/b
                 0x000001e6                schedule
  .text.execute  0x000003d8      0x160 Scheduler2.o
                 0x000003d8                execute
- .text.__vector_11
+ .text.__vector_10
                 0x00000538       0x58 Scheduler2.o
-                0x00000538                __vector_11
+                0x00000538                __vector_10
  .text.task1    0x00000590       0x18 Scheduler2.o
                 0x00000590                task1
  .text.task2    0x000005a8       0x16 Scheduler2.o
@@ -395,10 +395,10 @@ LOAD f:/programs/atmel toolchain/avr8 gcc/native/3.4.2.1002/avr8-gnu-toolchain/b
  *(.debug_frame)
  .debug_frame   0x00000000      0x178 Scheduler2.o
 
-.debug_str      0x00000000      0x12f
+.debug_str      0x00000000      0x113
  *(.debug_str)
- .debug_str     0x00000000      0x12f Scheduler2.o
-                                0x163 (size before relaxing)
+ .debug_str     0x00000000      0x113 Scheduler2.o
+                                0x147 (size before relaxing)
 
 .debug_loc      0x00000000      0x30a
  *(.debug_loc)

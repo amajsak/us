@@ -86,8 +86,8 @@ void execute(){
 	}
 }  
 
-ISR(TIMER0_OVF_vect){
-	schedule();
+ISR(TIMER0_COMP_vect){
+	schedule();	
 }
 
 void task1(){
@@ -104,7 +104,7 @@ int main(void)
 	// prescaler na 64
 	OCR0 = 250;
 	TCCR0 |= (0 << WGM00) | (0 << WGM01) | (0 << CS02) | (1 << CS01) | (1 << CS00) | (0 << COM01) | (0 << COM00);
-	TIMSK |= (1 << TOIE0);
+	TIMSK |= (1 << TOIE0) | (1 << OCIE0);
 	DDRA = 0xFF;
 	
 	init();
