@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Scheduler2", "Scheduler2\Scheduler2.cproj", "{90B5FCE8-D8B9-43AB-BA69-2947A43E33E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90B5FCE8-D8B9-43AB-BA69-2947A43E33E4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{90B5FCE8-D8B9-43AB-BA69-2947A43E33E4}.Debug|AVR.Build.0 = Debug|AVR
+		{90B5FCE8-D8B9-43AB-BA69-2947A43E33E4}.Release|AVR.ActiveCfg = Release|AVR
+		{90B5FCE8-D8B9-43AB-BA69-2947A43E33E4}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
